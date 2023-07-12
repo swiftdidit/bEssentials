@@ -1,0 +1,96 @@
+# Line breaks are supported use: '\n'
+  # to go to the next line.
+messages:
+  plugin-enabled: "&6Plugin Enabled, by &lFleeking!"
+  plugin-disabled: "&cPlugin Disabled, by Fleeking! goodbye <3"
+  permission-denied: "&cNo permission."
+  invalid-player: "&cInvalid player."
+  only-players: "&cOnly players can use this command!"
+  config-reload: "&aConfiguration's successfully reloaded."
+
+  help:
+    - "&6Help Messages &8**"
+    - "&7&lAdd as many as you please"
+
+  lobby:
+    already-in-lobby: "&cYou are already connected to the lobby!"
+    lobby-connect: "&aSending you to the lobby."
+    connect-error: "&cError sending you to the lobby."
+
+  motd:
+    - "&dWelcome %player% to the server!"
+    - "&bJoin us with&e (%global_online_count%/%max_global_count%)&b other players!"
+    - "Today is %day%, @ %time%.\n &aCherish every moment!"
+
+  announcements:
+    - "&6Welcome to the server!"
+    - "&dPlease subscribe to use on &cYou&fTube"
+    - "&bJoin our Discord community!"
+    - "&aDonate for more perks!\n &6&lVIP &7on sale in store."
+
+  join-message:
+    - "%player% has joined the game! %online%/%maxplayercount%"
+    - "You can make multiple lines :D"
+
+  leave-message:
+    - "%player% has left the game! %online%/%maxplayercount%"
+    - "You can make multiple lines :D"
+
+  bessentials-command:
+    - ""
+    - "&6&lbEssentials &9- &cAdmin Command"
+    - "&7Reload the configs, & check version"
+    - "&6/bess reload&f: Reload the configs."
+    - "&6/bess version&f: Check config.yml version"
+    - ""
+
+  ignore:
+    ignore-command:
+      - "Ignore Help Page :TODO:"
+    ignored-player: "&6Now ignoring &a%player%"
+    ignore-player-already: "&b%player% is already part of your ignore list!"
+    ignored-list:
+      - "&6&lYour Ignore List&8-"
+      - "Ignoring: &c%players%"
+    ignore-removed: "&aRemoved &b%player% &afrom your Ignore List."
+    ignore-remove-specify: "&cPlease specify a player to remove."
+    ignore-remove-null: "&b%player% &cis currently not ignored."
+    ignore-clear-none: "&aNothing to clear! Woo hoo!"
+    ignore-clear-success: "&aSuccessfully cleared your ignore list!"
+
+  msg-and-reply:
+    msg-usage: "&6/msg <player> <text>"
+    msg-notsent: "&b%player% &cis ignored, therefore no messaging this player."
+    msg-to-target: "TO %target%: &a%message%"
+    msg-from-sender: "FROM %sender%: &a%message%"
+    reply-usage: "&6/reply <text>"
+    reply-no-convo: "&7No one to reply too, you are not in conversation."
+
+  ping:
+    ping-usage: "&6/ping <player>"
+    my-ping: "My ping is &6%ping%ms"
+    players-ping: "%player%'s ping is &6%ping%ms"
+
+  plugins:
+    plugin-list: "&aPlugins &f(%count%): %plugins%"
+    plugin-comma: "&f, "
+
+  server-status:
+    online-status: "&aOnline"
+    offline-status: "&cOffline"
+    header:
+    - "&6&lServers"
+    - "&7View the status of Servers"
+    - " "
+    server-display: "&a[%server%] &f: &r%status%"
+
+  admin:
+    socialspy:
+      ss-usage: "&6/socialspy <player>"
+      enter-spy: "&aYou are now spying on &b%player%"
+      leave-spy: "&6Social Spy turned off, no longer spying on %player%"
+      ss-prefix: "&9[SOCIAL&eSPY&9]&7: %info%"
+    staffchat:
+      enter-sc: "&aYou are now in Staff Chat."
+      leave-sc: "&aStaff Chat &7&l-> &dPublic Chat"
+      sc-prefix: "&9[Staff]: &a%player% > &b%message%"

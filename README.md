@@ -1,2 +1,2 @@
 # bEssentials
-bEssentials is a groundbreaking BungeeCord plugin designed to revolutionize server administration and enhance player experience across your entire network. 
+bEssentials is a groundbreaking BungeeCord plugin designed to revolutionize server administration and enhance player experience across your entire network. With an extensive array of multi-purpose tools and network-wide player commands, bEssentials empowers admins to efficiently manage their servers while providing players with seamless communication and essential features.

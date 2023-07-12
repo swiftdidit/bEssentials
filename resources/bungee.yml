@@ -1,0 +1,26 @@
+name: bEssentials
+main: me.fleeking.bessentials.bEssentials
+author: Fleeking
+version: '1.0'
+description: Essentials Bungee Cord plugin
+commands:
+  status:
+    description: View all servers status (online/offline).
+  plugins:
+    description: List all the plugins.
+  help:
+    description: Display the help page.
+  msg:
+    description: Message a player.
+  lobby:
+    description: Teleport to the lobby.
+  reply:
+    description: Reply back to a player from last convo.
+  ping:
+    description: Display yours or another player's latency.
+  socialspy:
+    description: Spy on a player's conversation.
+  staffchat:
+    description: General discussion chat for staff.
+  bess:
+    description: Main plugin command, reload configs & change config version.
