@@ -57,11 +57,6 @@ public class Message {
 
         return this;
     }
-
-    public static void sendMotd(ProxiedPlayer player) {
-    }
-
-
     public static void staffChatPlayer(ProxiedPlayer player){
         boolean staffChatStatus = bEssentials.getInstance().getManager().staffChat.getOrDefault(player, false);
 

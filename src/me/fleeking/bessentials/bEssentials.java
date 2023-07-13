@@ -1,7 +1,6 @@
 package me.fleeking.bessentials;
 
 import me.fleeking.bessentials.cmds.*;
-import me.fleeking.bessentials.events.IgnoreListener;
 import me.fleeking.bessentials.events.JoinLeave;
 import me.fleeking.bessentials.events.MOTD;
 import me.fleeking.bessentials.events.StaffchatListener;
@@ -15,6 +14,7 @@ public class bEssentials extends Plugin {
     private SocialspyRun socialSpy;
     private Announcements announcements;
     private Init init;
+    private CommandManager commandManager;
     public void onEnable(){
         instance = this;
         init = new Init(this);
@@ -25,6 +25,9 @@ public class bEssentials extends Plugin {
         announcements = new Announcements(this, this);
 
         register();
+        commandManager = new CommandManager(this);
+        commandManager.manageCommands();
+
         socialSpy.start();
         announcements.start();
     }
@@ -50,8 +53,7 @@ public class bEssentials extends Plugin {
         pm.registerCommand(this, new Staffchat(this));
         pm.registerCommand(this, new Bess(this));
 
-        //TODO: Tab Header and Tab Footer, SetMOTD, set Tab and Footer, maintenance mode,
-        // & optional commands.
+        //TODO: Tab Header and Tab Footer, SetMOTD, set Tab and Footer, maintenance mode
 
 //        pm.registerListener(this, new IgnoreListener(this));
         pm.registerListener(this, new JoinLeave(this));

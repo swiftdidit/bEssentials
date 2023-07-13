@@ -20,7 +20,7 @@ public class SocialspyRun implements Runnable {
     }
     public void start() {
         TaskScheduler scheduler = ProxyServer.getInstance().getScheduler();
-        task = scheduler.schedule(plugin, this, 0, 2, TimeUnit.SECONDS); // Run every 2 seconds
+        task = scheduler.schedule(plugin, this, 1, 2, TimeUnit.SECONDS); // Run every 2 seconds
     }
     public void stop() {
         if (task != null) {

@@ -2,6 +2,7 @@ package me.fleeking.bessentials.utils;
 
 import com.google.common.collect.ImmutableMap;
 import me.fleeking.bessentials.bEssentials;
+import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 
 public class MiscUtil {
@@ -21,5 +22,8 @@ public class MiscUtil {
                             ImmutableMap.of("%player%", "" + target.getName()))
                     .send(target);
         }
+    }
+    public static String toColor(String base){
+        return ChatColor.translateAlternateColorCodes('&', base);
     }
 }

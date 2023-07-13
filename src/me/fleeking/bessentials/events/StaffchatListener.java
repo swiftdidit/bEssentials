@@ -19,19 +19,35 @@ public class StaffchatListener implements Listener {
         ProxiedPlayer player = (ProxiedPlayer) e.getSender();
         String message = e.getMessage();
 
-        if (core.getManager().inStaffChat(player)) {
-            if(message.startsWith("/")){
-                return;
+        //Prefix quick chat.
+        if (message.startsWith("!")) {
+            if (core.getManager().inStaffChat(player)) {
+                e.setMessage(message.substring(1)); // Remove the "!" prefix
+            } else {
+                e.setCancelled(true);
+                for (ProxiedPlayer staffMember : ProxyServer.getInstance().getPlayers()) {
+                        Message.of("messages.admin.staffchat.sc-prefix")
+                                .placeholders(ImmutableMap.of(
+                                        "%player%", player.getName(),
+                                        "%message%", message.substring(1))) // Remove the "!" prefix
+                                .send(staffMember);
+                }
             }
-
-            for (ProxiedPlayer staffMember : ProxyServer.getInstance().getPlayers()) {
-                if (core.getManager().inStaffChat(staffMember)) {
-                    e.setCancelled(true);
-                    Message.of("messages.admin.staffchat.sc-prefix")
-                            .placeholders(ImmutableMap.of(
-                                    "%player%", player.getName(),
-                                    "%message%", message))
-                            .send(staffMember);
+        } else {
+            // In staff chat.
+            if (core.getManager().inStaffChat(player)) {
+                if (message.startsWith("/")) {
+                    return;
+                }
+                e.setCancelled(true);
+                for (ProxiedPlayer staffMember : ProxyServer.getInstance().getPlayers()) {
+                    if (core.getManager().inStaffChat(staffMember)) {
+                        Message.of("messages.admin.staffchat.sc-prefix")
+                                .placeholders(ImmutableMap.of(
+                                        "%player%", player.getName(),
+                                        "%message%", message))
+                                .send(staffMember);
+                    }
                 }
             }
         }

@@ -43,6 +43,21 @@ public class Manager {
     public boolean isLeaveMsgs() {
         return core.getFiles().getConfig().get().getBoolean("settings.leave-message");
     }
+    public boolean isHelpCmd() {
+        return core.getFiles().getConfig().get().getBoolean("settings.help-command");
+    }
+    public boolean isIgnoreCmd() {
+        return core.getFiles().getConfig().get().getBoolean("settings.help-command");
+    }
+    public boolean isLobbyCmd() {
+        return core.getFiles().getConfig().get().getBoolean("settings.lobby-command");
+    }
+    public boolean isStaffChatCmd() {
+        return core.getFiles().getConfig().get().getBoolean("settings.staffchat-command");
+    }
+    public boolean isMsgsCmds() {
+        return core.getFiles().getConfig().get().getBoolean("settings.messagesystem-commands");
+    }
     public void saveIgnoredInfo(CommandSender sender){
         if(ignoring.isEmpty()){
             Message.of("[Config] No ignored players too save").send(core.getProxy().getConsole());

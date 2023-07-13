@@ -1,13 +1,29 @@
+#  ▀█████████▄     ▄████████    ▄████████    ▄████████    ▄████████ ███▄▄▄▄       ███      ▄█     ▄████████  ▄█          ▄████████
+#    ███    ███   ███    ███   ███    ███   ███    ███   ███    ███ ███▀▀▀██▄ ▀█████████▄ ███    ███    ███ ███         ███    ███
+#    ███    ███   ███    █▀    ███    █▀    ███    █▀    ███    █▀  ███   ███    ▀███▀▀██ ███▌   ███    ███ ███         ███    █▀
+#   ▄███▄▄▄██▀   ▄███▄▄▄       ███          ███         ▄███▄▄▄     ███   ███     ███   ▀ ███▌   ███    ███ ███         ███
+#  ▀▀███▀▀▀██▄  ▀▀███▀▀▀     ▀███████████ ▀███████████ ▀▀███▀▀▀     ███   ███     ███     ███▌ ▀███████████ ███       ▀███████████
+#    ███    ██▄   ███    █▄           ███          ███   ███    █▄  ███   ███     ███     ███    ███    ███ ███                ███
+#    ███    ███   ███    ███    ▄█    ███    ▄█    ███   ███    ███ ███   ███     ███     ███    ███    ███ ███▌    ▄    ▄█    ███
+#  ▄█████████▀    ██████████  ▄████████▀   ▄████████▀    ██████████  ▀█   █▀     ▄████▀   █▀     ███    █▀  █████▄▄██  ▄████████▀
+#                                                                                                           ▀
+
 # Restart Server after making any changes or they won't have any effect until you restart.
 # Our /bess reload command does not reload this file.
+#Practically every feature in this plugin is optional.
+
 config-version: 1
 
 settings:
   announcement-interval: 10 #seconds
-  announcement-delay: 0 #keep at 0 // adjust if you experience lag, I doubt this is your problem but still good to have control :D.
+  announcement-delay: 1 #ticks
   announcements: true
   join-message: true
   leave-message: true
+  help-command: true
+  lobby-command: true
+  staffchat-command: true
+  messagesystem-commands: true
   motd: true
 
 lobby:

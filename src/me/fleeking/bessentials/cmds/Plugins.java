@@ -3,6 +3,7 @@ package me.fleeking.bessentials.cmds;
 import com.google.common.collect.ImmutableMap;
 import me.fleeking.bessentials.bEssentials;
 import me.fleeking.bessentials.utils.Message;
+import me.fleeking.bessentials.utils.MiscUtil;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
@@ -19,13 +20,12 @@ public class Plugins extends Command {
         super("plugins");
         this.core = core;
     }
-
     @Override
     public void execute(CommandSender sender, String[] args) {
         if(sender.hasPermission("bessentials.admin") || sender.hasPermission("bessentials.plugins")){
             PluginManager pm = ProxyServer.getInstance().getPluginManager();
 
-            String comma = core.getFiles().getLang().get().getString("messages.plugins.plugin-comma");
+            String comma = MiscUtil.toColor(core.getFiles().getLang().get().getString("messages.plugins.plugin-comma"));
             String plugins = pm.getPlugins().stream()
                     .map(plugin -> "" + plugin.getDescription().getName())
                     .collect(Collectors.joining(comma));

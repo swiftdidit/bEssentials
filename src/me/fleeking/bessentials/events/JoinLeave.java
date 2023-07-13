@@ -1,9 +1,13 @@
 package me.fleeking.bessentials.events;
 
+import com.google.common.collect.ImmutableMap;
 import me.fleeking.bessentials.bEssentials;
 import me.fleeking.bessentials.utils.Message;
+import net.md_5.bungee.api.ProxyServer;
+import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.api.event.ServerConnectEvent;
+import net.md_5.bungee.api.event.PlayerDisconnectEvent;
+import net.md_5.bungee.api.event.ServerConnectedEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 
@@ -13,34 +17,52 @@ public class JoinLeave implements Listener {
         this.core = core;
     }
     @EventHandler
-    public void onJoin(ServerConnectEvent e){
+    public void onJoin(ServerConnectedEvent e){
         ProxiedPlayer player = e.getPlayer();
+        ServerInfo serverInfo = e.getServer().getInfo();
 
-
-
-        if(player.hasPermission("bessentials.joinmsg")){
             if(core.getManager().isJoinMsgs()){
-                Message.of("&a" + player.getName() + " &ehas joined the game &b("
-                        + core.getProxy().getOnlineCount() + "&e/" +
-                        core.getProxy().getConfig().getPlayerLimit() + "&b)").broadcast();
-            }
+                String serverName = serverInfo.getName();
+                int globalCount = ProxyServer.getInstance().getOnlineCount();
+                int serverCount = serverInfo.getPlayers().size();
+                serverCount++;
+
+                int globalMax = ProxyServer.getInstance().getConfig().getPlayerLimit();
+                String globalMaxPlayers = String.valueOf(globalMax);
+                if(globalMax == -1){
+                    globalMaxPlayers = "1";
+                }
+
+                Message.of("messages.join-message")
+                        .placeholders(ImmutableMap.of(
+                                "%player%", player.getName(),
+                                "%server_name%", serverName,
+                                "%global_online_count%", String.valueOf(globalCount),
+                                "%max_global_count%", (globalMax == -1) ? globalMaxPlayers : String.valueOf(globalMax),
+                                "%server_online_count%", String.valueOf(serverCount)))
+                        .broadcast();
         }
     }
     @EventHandler
-    public void onLeave(ServerConnectEvent e){
+    public void onLeave(PlayerDisconnectEvent e){
         ProxiedPlayer player = e.getPlayer();
 
-        if(player.hasPermission("bessentials.leavemsg")) {
             if (core.getManager().isJoinMsgs()) {
-                Message.of("&c" + player.getName() + " &ehas left the game &b("
-                        + core.getProxy().getOnlineCount() + "&e/" +
-                        core.getProxy().getConfig().getPlayerLimit() + "&b)").broadcast();
-            }
-            return;
-        }
+                int globalCount = ProxyServer.getInstance().getOnlineCount();
 
-        if(!core.getManager().ignoring.isEmpty() && core.getManager().isIgnoring(player)){
-            core.getManager().saveIgnoredInfo(player);
-        }
+                int globalMax = ProxyServer.getInstance().getConfig().getPlayerLimit();
+                String globalMaxPlayers = String.valueOf(globalMax);
+                if(globalMax == -1){
+                    globalMaxPlayers = "1";
+                }
+                globalCount--;
+
+                Message.of("messages.leave-message")
+                        .placeholders(ImmutableMap.of(
+                                "%player%", player.getName(),
+                                "%global_online_count%", String.valueOf(globalCount),
+                                "%max_global_count%", (globalMax == -1) ? globalMaxPlayers : String.valueOf(globalMax)))
+                        .broadcast();
+            }
     }
 }
