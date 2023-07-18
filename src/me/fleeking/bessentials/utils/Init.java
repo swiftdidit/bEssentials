@@ -1,10 +1,7 @@
 package me.fleeking.bessentials.utils;
 
 import me.fleeking.bessentials.bEssentials;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
-import redis.clients.jedis.JedisPubSub;
+import redis.clients.jedis.*;
 
 import java.io.File;
 import java.util.concurrent.CompletableFuture;
@@ -24,11 +21,12 @@ public class Init {
         this.ignored_players = new Config("ignored_players.yml", core);
 
         String host = getConfig().get().getString("redis.host");
+        String password = getConfig().get().getString("redis.pass");
         int port = getConfig().get().getInt("redis.port");
         int timeout = getConfig().get().getInt("redis.timeout");
 
         JedisPoolConfig poolConfig = new JedisPoolConfig();
-        this.pool = new JedisPool(poolConfig, host, port, timeout);
+        this.pool = new JedisPool(poolConfig, host, port, timeout, password);
 
         this.jedis = pool.getResource();
 
