@@ -14,28 +14,29 @@ public class Init {
     private final Config lang;
     private final Config config;
     private final Config ignored_players;
-    private final JedisPoolConfig jedisPoolConfig;
     private final JedisPool pool;
     private final Jedis jedis;
     public Init(bEssentials core){
         this.core = core;
 
-        String host = getConfig().get().getString("redis.host");
-        int port = getConfig().get().getInt("redis.port");
-        String username = getConfig().get().getString("redis.username");
-        String password = getConfig().get().getString("redis.password");
-
-        this.jedisPoolConfig = new JedisPoolConfig();
-        this.pool = new JedisPool(jedisPoolConfig, host, port, username, password);
-        this.jedis = pool.getResource();
-
         this.lang = new Config("lang.yml", core);
         this.config = new Config("config.yml", core);
         this.ignored_players = new Config("ignored_players.yml", core);
 
+        String host = getConfig().get().getString("redis.host");
+        int port = getConfig().get().getInt("redis.port");
+        int timeout = getConfig().get().getInt("redis.timeout");
+
+        JedisPoolConfig poolConfig = new JedisPoolConfig();
+        this.pool = new JedisPool(poolConfig, host, port, timeout);
+
+        this.jedis = pool.getResource();
+
         jedis.set("config", core.getDataFolder().getAbsolutePath() + File.separator + "config.yml");
         jedis.set("lang", core.getDataFolder().getAbsolutePath() + File.separator + "lang.yml");
         jedis.set("ignored_players", core.getDataFolder().getAbsolutePath() + File.separator + "ignored_players.yml");
+        jedis.set("host", getConfig().get().getString("redis.host"));
+        jedis.set("port", String.valueOf(getConfig().get().getInt("redis.port")));
     }
     public void pubJedis(String channel, String message) {
         try (Jedis jedis = pool.getResource()) {

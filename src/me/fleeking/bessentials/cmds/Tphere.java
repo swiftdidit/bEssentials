@@ -29,23 +29,21 @@ public class Tphere extends Command implements TabExecutor {
 
         ProxiedPlayer player = (ProxiedPlayer) sender;
         if (sender.hasPermission("bessentials.admin") || sender.hasPermission("bessentials.tphere")) {
-            switch(args.length){
-                case 1:
-                    String targetName = args[0];
 
-                    ProxiedPlayer target = core.getProxy().getPlayer(targetName);
+            if(args.length > 0){
+                String targetName = args[0];
 
-                    if (target == null || !target.isConnected()) {
-                        Message.of("messages.invalid-player").send(player);
-                        return;
-                    }
+                ProxiedPlayer target = core.getProxy().getPlayer(targetName);
 
-                    core.getFiles().pubJedis("bungee", "teleport:here");
-                    core.getFiles().getJedis().set("tphereTargetName", target.getName());
-                    break;
+                if (target == null || !target.isConnected()) {
+                    Message.of("messages.invalid-player").send(player);
+                    return;
+                }
 
-                default:
-                    Message.of("messages.admin.teleport.usage").send(player);
+                core.getFiles().pubJedis("bungee", "teleport:here");
+                core.getFiles().getJedis().set("tphereTargetName", target.getName());
+            }else{
+                Message.of("messages.admin.teleport.usage").send(player);
             }
         } else {
             Message.of("messages.permission-denied").send(sender);

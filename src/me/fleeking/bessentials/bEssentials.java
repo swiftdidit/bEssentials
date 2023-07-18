@@ -57,10 +57,9 @@ public class bEssentials extends Plugin {
         pm.registerCommand(this, new Tpaccept(this));
         pm.registerCommand(this, new Tpahere(this));
         pm.registerCommand(this, new Tphere(this));
+        pm.registerCommand(this, new AFK(this));
 
         //TODO: Tab Header and Tab Footer, SetMOTD, set Tab and Footer, maintenance mode
-        //TODO: Setup Jedis, set up friends, party, tp, tpa, tphere, tpadeny, tpaaccept.
-        //TODO: Add Ignore Command with correct logic (hard) but you must complete.
 
         pm.registerListener(this, new JoinLeave(this));
         pm.registerListener(this, new MOTD(this));

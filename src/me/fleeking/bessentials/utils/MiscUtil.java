@@ -23,6 +23,34 @@ public class MiscUtil {
                     .send(target);
         }
     }
+    public static void setPlayerAfk(ProxiedPlayer player, boolean afk){
+        bEssentials.getInstance().getManager().afk.put(player, afk);
+    }
+    public static void afkCommand(ProxiedPlayer player) {
+        boolean afked = bEssentials.getInstance().getManager().afk.getOrDefault(player, false);
+
+        if (afked) {
+            bEssentials.getInstance().getManager().afk.put(player, false);
+            if (bEssentials.getInstance().getManager().isBroadcastAfk()) {
+                Message.of("messages.player.afk.afk-disabled").send(player);
+                Message.of("messages.player.afk.disable-afk-broadcast")
+                        .placeholders(ImmutableMap.of("%player%", player.getName()))
+                        .broadcast();
+            } else {
+                Message.of("messages.player.afk.afk-disabled").send(player);
+            }
+        } else {
+            bEssentials.getInstance().getManager().afk.put(player, true);
+            if (bEssentials.getInstance().getManager().isBroadcastAfk()) {
+                Message.of("messages.player.afk.enable-afk").send(player);
+                Message.of("messages.player.afk.enable-afk-broadcast")
+                        .placeholders(ImmutableMap.of("%player%", player.getName()))
+                        .broadcast();
+            } else {
+                Message.of("messages.player.afk.enable-afk").send(player);
+            }
+        }
+    }
     public static String toColor(String base){
         return ChatColor.translateAlternateColorCodes('&', base);
     }

@@ -14,6 +14,7 @@ public class Manager {
     public Map<ProxiedPlayer, List<String>> socialSpyMessages = new HashMap<>();
     public Map<ProxiedPlayer, Boolean> staffChat = new HashMap<>();
     public Map<CommandSender, ProxiedPlayer> tpa = new HashMap<>();
+    public Map<ProxiedPlayer, Boolean> afk = new HashMap<>();
     public Manager(bEssentials core){
         this.core = core;
     }
@@ -38,9 +39,6 @@ public class Manager {
     public boolean isHelpCmd() {
         return core.getFiles().getConfig().get().getBoolean("settings.help-command");
     }
-    public boolean isIgnoreCmd() {
-        return core.getFiles().getConfig().get().getBoolean("settings.help-command");
-    }
     public boolean isLobbyCmd() {
         return core.getFiles().getConfig().get().getBoolean("settings.lobby-command");
     }
@@ -52,5 +50,9 @@ public class Manager {
     }
     public void cleanUp(){
         messaging.clear();
+    }
+
+    public boolean isBroadcastAfk() {
+        return core.getFiles().getConfig().get().getBoolean("settings.broadcast-afk");
     }
 }

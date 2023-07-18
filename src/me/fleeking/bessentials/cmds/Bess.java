@@ -4,10 +4,9 @@ import me.fleeking.bessentials.bEssentials;
 import me.fleeking.bessentials.utils.Message;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.plugin.Command;
-import net.md_5.bungee.api.plugin.TabExecutor;
 import net.md_5.bungee.config.Configuration;
 
-public class Bess extends Command implements TabExecutor {
+public class Bess extends Command {
     private final bEssentials core;
     private final Configuration config;
     public Bess(bEssentials core) {
@@ -32,10 +31,5 @@ public class Bess extends Command implements TabExecutor {
         }else{
             Message.of("messages.permission-denied").send(sender);
         }
-    }
-
-    @Override
-    public Iterable<String> onTabComplete(CommandSender sender, String[] args) {
-        return null;
     }
 }

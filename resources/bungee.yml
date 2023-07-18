@@ -36,3 +36,5 @@ commands:
     description: Request a player to teleport to you!
   tphere:
     description: Admins can use this to teleport a player directly to you.
+  afk:
+    description: Go AFK. (Away from Keyboard)

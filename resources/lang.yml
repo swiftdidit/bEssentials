@@ -109,6 +109,12 @@ messages:
       tpa-deny-norequest: "&7No outgoing requests."
       tpa-denied: "&6Successfully denied most recent request by %requester%"
       tpa-denied-to-player-denied: "&6Teleport request denied by %denier%"
+    afk:
+      afk-disabled: "&7You are no longer AFK."
+      enable-afk-broadcast: "&5* &o%player% &7is now AFK."
+      disable-afk-broadcast: "&6* &7&o%player% &2is back from being AFK."
+      enable-afk: "&6You are now AFK."
+      detected-afk: "&8YOU WILL BE AFKED IN 10 SECONDS!\n &c&lMOVE AROUND OR &r&4GET SENT&c&l TO &3&lDAVY JONES LOCKER"
 
   admin:
     socialspy:

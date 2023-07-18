@@ -17,8 +17,7 @@ config-version: 1
 redis:
   host: "localhost"
   port: 6379
-  username: "johndoe123"
-  password: "password123"
+  timeout: 5000
 
 settings:
   announcement-interval: 10 #seconds
@@ -31,6 +30,7 @@ settings:
   staffchat-command: true
   messagesystem-commands: true
   motd: true
+  broadcast-afk: true
 
   tpa-expiretime: 30 #in seconds
   tpahere-expiretime: 30 #in seconds
