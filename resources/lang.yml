@@ -17,6 +17,8 @@ messages:
   invalid-player: "&cInvalid player."
   only-players: "&cOnly players can use this command!"
   config-reload: "&aConfiguration's successfully reloaded."
+  loaded-profile: "&aSuccessfully loaded profile for &r%player%"
+  given-diamonds: "&bReceived the diamonds!!!!!"
 
   help:
     - "&6Help Messages &8**"
@@ -92,6 +94,22 @@ messages:
     - " "
     server-display: "&a[%server%] &f: &r%status%"
 
+  player:
+    tpa:
+      usage: "&6/tpa <player>"
+      tpahere-usage: "&6/tpahere <player>"
+      sent-request: "&aSent request to %target% &bexpires in 30 seconds."
+      tpahere-sent: "&a%player% sent a request to teleport to them!\n &6&lClick to accept!"
+      request-expired: "&3Outgoing request to %target% has been expired."
+      player-request-expired: "&6Teleportation request from %sender% has expired."
+      accepted-teleporting: "&6%target% has accepted your request. Teleporting..."
+      accepted-teleporting-sender: "&eTeleporting to %sender%.."
+      already-sent: "&7You already sent a request to this player."
+      player-requesting: "&6%player% has sent a request to teleport to you\n &a&lClick here to accept"
+      tpa-deny-norequest: "&7No outgoing requests."
+      tpa-denied: "&6Successfully denied most recent request by %requester%"
+      tpa-denied-to-player-denied: "&6Teleport request denied by %denier%"
+
   admin:
     socialspy:
       ss-usage: "&6/socialspy <player>"
@@ -102,3 +120,9 @@ messages:
       enter-sc: "&aYou are now in Staff Chat."
       leave-sc: "&aStaff Chat &6-> &dPublic Chat"
       sc-prefix: "&9[Staff]: &a%player% > &b%message%"
+    teleport:
+      usage: "&6/tp <player> &eoptional: &6(player)"
+      teleported-to: "&aTeleported to %target%."
+      teleport-player-to-you: "&6Teleported %target% here."
+      teleported-player-to: "&aTeleported %player% to %target%"
+      teleport-player-to-player: "&6Teleported to %player%"

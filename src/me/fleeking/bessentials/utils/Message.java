@@ -1,19 +1,10 @@
 package me.fleeking.bessentials.utils;
 
-import com.google.common.collect.ImmutableMap;
 import me.fleeking.bessentials.bEssentials;
-import me.fleeking.bessentials.cmds.Servers;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
-import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.api.connection.Server;
-
-import java.lang.reflect.Proxy;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -23,12 +14,11 @@ public class Message {
     private String configSec;
     private String parsedString;
     private List<String> parsedList;
-    private Config langConfig;
     private boolean isString;
 
     public Message(String configSec) {
         this.configSec = configSec;
-        langConfig = bEssentials.getInstance().getFiles().getLang();
+        Config langConfig = bEssentials.getInstance().getFiles().getLang();
 
         if (langConfig.get().contains(configSec) && langConfig.get().get(configSec) instanceof String) {
             isString = true;

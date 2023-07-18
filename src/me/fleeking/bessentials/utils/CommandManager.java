@@ -15,9 +15,6 @@ public class CommandManager {
         if(!core.getManager().isHelpCmd()){
             pm.unregisterCommand(new Help(core));
         }
-        if(!core.getManager().isIgnoreCmd()){
-            pm.unregisterCommand(new Ignore(core));
-        }
         if(!core.getManager().isLobbyCmd()){
             pm.unregisterCommand(new Lobby(core));
         }

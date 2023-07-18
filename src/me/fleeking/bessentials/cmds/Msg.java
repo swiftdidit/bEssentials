@@ -38,12 +38,12 @@ public class Msg extends Command implements TabExecutor {
                     return;
                 }
 
-                if(core.getManager().isIgnoring(target)){
-                    Message.of("messages.msg-and-reply.msg-notsent").placeholders(
-                                    ImmutableMap.of("%player%", "" + target.getName()))
-                            .send(sender);
-                    return;
-                }
+//                if(core.getManager().isIgnoring(target)){
+//                    Message.of("messages.msg-and-reply.msg-notsent").placeholders(
+//                                    ImmutableMap.of("%player%", "" + target.getName()))
+//                            .send(sender);
+//                    return;
+//                }
 
                 core.getManager().messaging.clear();
                 core.getManager().messaging.put(sender, target);

@@ -24,3 +24,15 @@ commands:
     description: General discussion chat for staff.
   bess:
     description: Main plugin command, reload configs & change config version.
+  teleport:
+    description: Teleport to a player.
+  tpa:
+    description: Send a teleport request to a player.
+  tpadeny:
+    description: Deny a tp request.
+  tpaccept:
+    description: Send a request to teleport to someone.
+  tpahere:
+    description: Request a player to teleport to you!
+  tphere:
+    description: Admins can use this to teleport a player directly to you.

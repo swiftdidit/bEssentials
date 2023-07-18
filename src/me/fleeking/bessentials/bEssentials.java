@@ -45,17 +45,23 @@ public class bEssentials extends Plugin {
         pm.registerCommand(this, new Plugins(this));
         pm.registerCommand(this, new Help(this));
         pm.registerCommand(this, new Msg(this));
-//        pm.registerCommand(this, new Ignore(this));
         pm.registerCommand(this, new Lobby(this));
         pm.registerCommand(this, new Reply(this));
         pm.registerCommand(this, new Ping(this));
         pm.registerCommand(this, new Socialspy(this));
         pm.registerCommand(this, new Staffchat(this));
         pm.registerCommand(this, new Bess(this));
+        pm.registerCommand(this, new Teleport(this));
+        pm.registerCommand(this, new Tpa(this));
+        pm.registerCommand(this, new Tpadeny(this));
+        pm.registerCommand(this, new Tpaccept(this));
+        pm.registerCommand(this, new Tpahere(this));
+        pm.registerCommand(this, new Tphere(this));
 
         //TODO: Tab Header and Tab Footer, SetMOTD, set Tab and Footer, maintenance mode
+        //TODO: Setup Jedis, set up friends, party, tp, tpa, tphere, tpadeny, tpaaccept.
+        //TODO: Add Ignore Command with correct logic (hard) but you must complete.
 
-//        pm.registerListener(this, new IgnoreListener(this));
         pm.registerListener(this, new JoinLeave(this));
         pm.registerListener(this, new MOTD(this));
         pm.registerListener(this, new StaffchatListener(this));
